@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+{% block style %}
+    <style>
+        .jumbotron {
+            background-color: #f4511e; /* Orange */
+            color: #ffffff;
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+    </style>
+{% endblock %}
+<body>
+<div class="jumbotron text-center">
+    <h1>{% block h1 %}Essen{% endblock %}</h1>
+
+    <p>{% block subtitle %}What you have <strong>eaten</strong> in the last month?{% endblock %}</p>
+
+    {% block search %}
+        <form class="form-inline">
+            <input type="email" class="form-control" size="50" placeholder="Email Address">
+            <button type="button" class="btn btn-danger">Find Me!</button>
+        </form>
+    {% endblock %}
+
+</div>
+{% block contents %}{% endblock %}
+</body>
+</html>
