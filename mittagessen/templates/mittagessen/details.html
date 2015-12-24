@@ -1,0 +1,72 @@
+{% extends 'site_base.html' %}
+
+{% block title %}Mittagessen Details für {{ esser.name }}{% endblock %}
+
+{% block h1 %}Mittagessen{% endblock %}
+
+{% block subtitle %}für {{ esser.name }}{% endblock %}
+
+{% block search %}{% endblock %}
+
+{% block style %}
+    <style>
+        .logo {
+            font-size: 150px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+        }
+
+        .container-fluid {
+            padding: 60px 50px;
+        }
+
+        .jumbotron {
+            background-color: #f4511e; /* Orange */
+            color: #ffffff;
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        .stats {
+            background-color: ghostwhite;
+        }
+    </style>
+{% endblock %}
+
+{% block contents %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <span class="glyphicon glyphicon-globe logo"></span>
+            </div>
+            <div class="col-sm-8">
+                <h2>{{ esser.name }}</h2>
+
+                <p>{{ esser.alias }}</p>
+                <h4><strong>Bill:</strong> {{ esser.bill }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid stats">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Bill Details</h2>
+
+                <ul>
+                    {% for mahlzeit in mahlzeiten %}
+                        <li><strong>{{ mahlzeit.price }}</strong>: {{ mahlzeit.type.name }} from {{ mahlzeit.type.category_name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-4 text-center">
+                <span class="glyphicon glyphicon-signal logo"></span>
+            </div>
+        </div>
+    </div>
+{% endblock %}

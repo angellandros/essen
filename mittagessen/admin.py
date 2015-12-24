@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Essen, Esser, Abendessen
+from .models import Essen, Esser, Mittagessen
 
 
 class EssenAdmin(admin.ModelAdmin):
@@ -13,7 +13,7 @@ class EsserAdmin(admin.ModelAdmin):
     list_display = ['name', 'alias', 'email', 'bill']
 
 
-class AbendessenAdmin(admin.ModelAdmin):
+class MittagessenAdmin(admin.ModelAdmin):
     fields = ['person', 'type', 'price', 'date']
     list_display = ['name', 'person', 'type', 'price', 'date']
     list_filter = ['person', 'type', 'date']
@@ -24,4 +24,4 @@ class AbendessenAdmin(admin.ModelAdmin):
 
 admin.site.register(Essen, EssenAdmin)
 admin.site.register(Esser, EsserAdmin)
-admin.site.register(Abendessen, AbendessenAdmin)
+admin.site.register(Mittagessen, MittagessenAdmin)

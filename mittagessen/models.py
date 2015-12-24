@@ -20,7 +20,7 @@ class Essen(models.Model):
         return self.name
 
 
-class Abendessen(models.Model):
+class Mittagessen(models.Model):
     person = models.ForeignKey(Esser)
     type = models.ForeignKey(Essen)
     price = models.FloatField(default=0)

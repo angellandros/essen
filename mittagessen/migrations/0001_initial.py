@@ -11,14 +11,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Abendessen',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('price', models.FloatField(default=0)),
-                ('date', models.DateField()),
-            ],
-        ),
-        migrations.CreateModel(
             name='Essen',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -37,14 +29,14 @@ class Migration(migrations.Migration):
                 ('bill', models.FloatField(default=0)),
             ],
         ),
-        migrations.AddField(
-            model_name='abendessen',
-            name='person',
-            field=models.ForeignKey(to='abendessen.Esser'),
-        ),
-        migrations.AddField(
-            model_name='abendessen',
-            name='type',
-            field=models.ForeignKey(to='abendessen.Essen'),
+        migrations.CreateModel(
+            name='Mittagessen',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('price', models.FloatField(default=0)),
+                ('date', models.DateField()),
+                ('person', models.ForeignKey(to='mittagessen.Esser')),
+                ('type', models.ForeignKey(to='mittagessen.Essen')),
+            ],
         ),
     ]
